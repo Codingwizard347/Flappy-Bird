@@ -6,6 +6,8 @@ input.onButtonPressed(Button.B, function () {
 })
 let tick = 0
 let Flapy_Bird: game.LedSprite = null
+game.setScore(0)
+let index2 = 0
 Flapy_Bird = game.createSprite(0, 2)
 let Green_Bar: game.LedSprite[] = []
 let Emptygreenbar = randint(0, 4)
@@ -13,6 +15,7 @@ Flapy_Bird.set(LedSpriteProperty.Blink, 200)
 basic.forever(function () {
     while (Green_Bar.length > 0 && Green_Bar[0].get(LedSpriteProperty.X) == 0) {
         Green_Bar.removeAt(0).delete()
+        game.addScore(0.25)
     }
     for (let Obstacle_1 of Green_Bar) {
         Obstacle_1.change(LedSpriteProperty.X, -1)
